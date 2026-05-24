@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k8s-demo-app
-  namespace: dev
+  namespace: staging
   labels:
     app: k8s-demo-app
 spec:
@@ -18,7 +18,7 @@ spec:
       containers:
       - name: k8s-demo-app
         image: k8s-demo-app:1.1.0
-        imagePullPolicy: Never # Use local image
+        imagePullPolicy: Never
         ports:
         - containerPort: 5000
         env:

@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k8s-demo-app
-  namespace: dev
+  namespace: prod
   labels:
     app: k8s-demo-app
 spec:
-  replicas: 2
+  replicas: 3  # More replicas in prod
   selector:
     matchLabels:
       app: k8s-demo-app
@@ -18,7 +18,7 @@ spec:
       containers:
       - name: k8s-demo-app
         image: k8s-demo-app:1.1.0
-        imagePullPolicy: Never # Use local image
+        imagePullPolicy: Never
         ports:
         - containerPort: 5000
         env:
@@ -46,8 +46,8 @@ spec:
           periodSeconds: 3
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "100m"
-          limits:
-            memory: "128Mi"
+            memory: "128Mi"  # More resources in prod
             cpu: "200m"
+          limits:
+            memory: "256Mi"
+            cpu: "400m"
