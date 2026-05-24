@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: k8s-demo-app
-        image: sshire/k8s-demo-app:latest
+        image: sshire/k8s-demo-app:healthy
         imagePullPolicy: Always # Use local image
         ports:
         - containerPort: 5000
