@@ -8,7 +8,7 @@ def home():
     return jsonify({
         "message": "Hello from Kubernetes!",
         "environment": os.getenv('ENVIRONMENT', 'dev'),
-        "version": os.getenv('VERSION', '1.0.0')
+        "version": os.getenv('VERSION', '1.1.0')
     })
 @app.route('/health')
 def health():
