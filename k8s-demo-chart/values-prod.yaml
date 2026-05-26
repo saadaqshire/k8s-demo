@@ -1,0 +1,24 @@
+namespace: prod
+environment: prod
+version: "1.0.0"
+replicas: 3
+
+image:
+  repository: k8s-demo-app
+  tag: "1.0.0"
+  pullPolicy: Never
+
+service:
+  type: LoadBalancer
+  port: 80
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi
+
+featureFlags:
+  newUI: "false"

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: {{ .Values.namespace }}
+data:
+  ENVIRONMENT: {{ .Values.environment }}
+  VERSION: {{ .Values.version }}
+  FEATURE_FLAG_NEW_UI: {{ .Values.featureFlags.newUI | quote }}
+
